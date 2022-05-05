@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Baithi3.Models.Sach>
+
+@{
+    ViewBag.Title = "ListBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListBooks</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateBook")
+</p>
+
+<p>
+    @Html.ActionLink("Find Book", "FindBook")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TacGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NamXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageCover)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TacGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageCover)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditBook", new { id=item.ID }) |
+    
+            @Html.ActionLink("Delete", "DeleteBook", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
